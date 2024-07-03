@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+    text-explorer:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "10001:10000"
+        depends_on:
+            - qdrant
+        volumes:
+            - ./vectornotes-caches:/vectornotes-caches
+        networks:
+            - text-explorer-network
+
+    qdrant:
+        image: qdrant/qdrant
+        ports:
+            - "6333:6333"
+        volumes:
+            - ./qdrant_storage:/qdrant/storage:z
+        networks:
+            - text-explorer-network
+
+networks:
+    text-explorer-network:
+        driver: bridge
