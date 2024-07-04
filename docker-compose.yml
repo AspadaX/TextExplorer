@@ -10,7 +10,7 @@ services:
         depends_on:
             - qdrant
         volumes:
-            - ./vectornotes-caches:/vectornotes-caches
+            - ../vectornotes-caches:/vectornotes-caches
         networks:
             - text-explorer-network
 
