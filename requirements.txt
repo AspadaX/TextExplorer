@@ -1,8 +1,0 @@
-pydantic==2.7.3
-qdrant-client==1.9.1
-transformers==4.40.1
-onnxruntime==1.18.0
-numpy==1.26.4
-loguru==0.7.2
-nicegui==1.4.27
-semantic_text_splitter==0.14.0

@@ -6,23 +6,26 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
+            - "3000:3000"
             - "10000:10000"
         depends_on:
             - qdrant
-        volumes:
-            - ../vectornotes-caches:/vectornotes-caches
         networks:
-            - text-explorer-network
+            - app-network
+        volumes:
+            - ./onnx:/app/onnx
+            - ./sqlite_database.db:/app/sqlite_database.db:z
 
     qdrant:
         image: qdrant/qdrant
         ports:
             - "6333:6333"
+            - "6334:6334"
         volumes:
             - ./qdrant_storage:/qdrant/storage:z
         networks:
-            - text-explorer-network
+            - app-network
 
 networks:
-    text-explorer-network:
+    app-network:
         driver: bridge

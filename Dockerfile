@@ -1,24 +1,29 @@
-# Dockerfile for Python Backend
-FROM python:3.11.4-slim
+# Start from a minimal base image for running the compiled binaries
+FROM ubuntu:22.04
 
-# Set the working directory
+# Install NGINX to serve the frontend
+RUN apt-get update && \
+    apt-get install -y nginx libsqlite3-dev libsqlite3-0 && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /etc/nginx/sites-enabled/default
+
+# Set up directories
 WORKDIR /app
 
-# Copy the Python requirements file
-COPY requirements.txt .
+# Copy the pre-built Rust backend binary and other necessary files
+COPY ./rust_backend /app
+COPY ./.env /app
+COPY ./sqlite_database.db /app
+COPY ./configurations.json /app
 
-# Set a specific PyPI mirror for pip
-ARG PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple/
+# Copy the pre-built frontend files
+COPY ./build /var/www/html
 
-# Install Python dependencies
-RUN pip install --trusted-host pypi.tuna.tsinghua.edu.cn \
-    --index-url ${PIP_INDEX_URL} --no-cache-dir -r requirements.txt
+# Custom NGINX configuration to serve the frontend and proxy to the backend
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the backend code
-COPY . .
-
-# Expose the port the backend runs on
+# Expose only the port for the frontend
 EXPOSE 3000
 
-# Command to run the backend
-CMD ["python", "GUI.py"]
+# CMD to start both NGINX and your backend
+CMD ["sh", "-c", "service nginx start && ./rust_backend"]
