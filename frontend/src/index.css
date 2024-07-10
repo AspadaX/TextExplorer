@@ -1,0 +1,97 @@
+/* body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+} */
+
+* {
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
+}
+
+input,
+textarea,
+button {
+	padding: 8px;
+	margin: 8px 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 95%;
+}
+
+button {
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	background-color: #FFF;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+li:hover {
+	background-color: #f9f9f9;
+}
+
+/* Default light theme */
+:root {
+	--background-color: #fff;
+	--text-color: #333;
+	--sidebar-bg-color: #f0f0f0;
+	--button-bg-color: #007BFF;
+	--button-text-color: #ffffff;
+	--input-bg-color: #fff;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+button {
+	background-color: var(--button-bg-color);
+	color: var(--button-text-color);
+}
+
+.deleteButton {
+	padding: 4px 8px; /* Smaller padding */
+	margin-left: 10px; /* Space it out from the document name */
+	background-color: #dc3545; /* Red color for delete */
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size: 12px; /* Smaller font size */
+	border-radius: 4px; /* Rounded corners */
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.deleteButton:hover {
+	opacity: 0.8;
+}
