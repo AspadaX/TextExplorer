@@ -7,9 +7,11 @@
 
 TextExplorer is a powerful tool designed to make reading and searching through massive texts easier. It leverages vector search technology to efficiently find relevant information within large documents. This project uses the Qdrant vector database and ONNX for embedding models to provide fast and accurate search results.
 
+The backend is written in Rust for high performance. 
+
 The open source version of this project is only for **RESEARCH** purposes. 
 
-If you are interested in this project and would like to be part of this project, please reach me out. Commercial interests are also welcomed: 
+If you are interested in this project and would like to join, please reach me out. Commercial interests are also welcomed: 
 
 Discord: `https://discord.gg/7u9U2Es5`
 
@@ -17,7 +19,7 @@ WeChat: `baoxinyu2007`
 
 ## Features
 
-- **Vector Search:** Utilizes advanced vector search to quickly locate relevant information in large texts.
+- **Semantic Search:** Utilizes advanced vector search to quickly locate relevant information in large texts.
 - **User Interface:** Provides a rudimentary UI for interacting with the text data, adding new documents, and managing collections.
 - **Document Management:** Allows for the addition and deletion of document collections.
 
@@ -25,70 +27,24 @@ WeChat: `baoxinyu2007`
 
 ### Prerequisites
 
-- Python 3.11.4+ (The project is developed on 3.11.4)
 - Docker (for running Qdrant and easier access to the project)
-- ONNX Runtime
 
 ### Setup
 1. **Prepare the embedding model:**
    
-   You will need to download a copy of `BAAI/bge-m3` on Huggingface, and place it under: `../vectornotes-caches/embeddings`
+   You will need to download a copy of `aapot/bge-m3-onnx` on Huggingface, and place it under: `./onnx`
 
-2. **Clone the repository:**
-
-   ```sh
-   git clone https://github.com/your-username/TextExplorer.git
-   cd TextExplorer
-   ```
-
-3. **Install the required Python packages:**
-
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-4. **Run Qdrant:**
-
-   Make sure to run Qdrant using Docker:
-
-   ```sh
-   docker run -p 6333:6333 -p 6334:6334 -v /path/to/qdrant_storage:/qdrant/storage:z qdrant/qdrant
-   ```
-
-5. **Configure the application:**
-
-   Ensure your configuration files are properly set up. Refer to `utilities.Lifespan` for configuration management.
-
-6. **Run the application:**
-
-   ```sh
-   python GUI.py
-   ```
-   Notice that the application should be run at 10000 port by default. 
-
-### Using Docker
-You can also set up and run the project using Docker and Docker Compose.
-
-#### Build and Run with Docker
-1. Build the Docker image:
-
-```sh
-docker build -t text-explorer .
-```
-2. Run the Docker container:
-
-```sh
-docker run -p 10000:10000 text-explorer
-```
 #### Using Docker Compose
 1. Ensure Docker Compose is installed.
 
 2. Run Docker Compose:
 
 ```sh
-docker-compose up
+docker compose up
 ```
-This will start both the TextExplorer application and the Qdrant service. And it should be accessible via `localhost:10000`
+This will start both the TextExplorer application and the Qdrant service. And it should be accessible via `localhost:3000`
+
+Note: If you would like to run the docker container in the background, please add `-d` at the end of the above command like so: `docker compose up -d`
 
 ## Usage
 
@@ -123,21 +79,15 @@ This sets the difference between the traditional keyword search and semantic sea
 ### Managing Collections
 
 You can delete collections as needed, which will remove all documents within that collection.
-
-## Project Structure
-
-- `GUI.py`: Initializes the application, loads configurations, and sets up the main page.
-- `MainPage.py`: Handles the main UI interactions, including adding and searching documents.
-- `UIControllers.py`: Manages UI control logic and updates.
   
 ## Roadmap
 
-- Implement in Rust for blazingly fast performance. 🔥
-- Implement a better looking interface. 
-- Add more practical features, for example, parsing files and websites. 
+- Implement in Rust for blazingly fast performance. (Done)
+- Implement a better looking interface. (Done)
+- Add more practical features, for example, parsing files, videos/audios and websites. (In-Progress)
 - Launch a web service for people without a tech background to hand on easily.  
   
-## Special Thanks
+## Credits
 
 - [Qdrant](https://github.com/qdrant/qdrant): A distributed, high-performance vector search engine.
 - [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3): A pre-trained Chinese language model for text embedding.
