@@ -32,7 +32,7 @@ WeChat: `baoxinyu2007`
 ### Setup
 1. **Prepare the embedding model:**
    
-   You will need to download a copy of `aapot/bge-m3-onnx` on Huggingface, and place it under: `./onnx`
+   You will need to download a copy of `BAAI/bge-m3` on Huggingface, and place it under: `./onnx`
 
 #### Using Docker Compose
 1. Ensure Docker Compose is installed.
