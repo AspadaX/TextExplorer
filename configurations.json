@@ -1,8 +1,13 @@
 {
     "host": "0.0.0.0",
     "port": 10000,
-    "embedding_model_path": "./onnx/aapot/bge-m3-onnx/model.onnx", 
-    "embedding_tokenizer_path": "./onnx/aapot/bge-m3-onnx/tokenizer.json", 
+    "embedding_model_configurations": {
+        "embedding_model_path": "./onnx/bge-m3/onnx/model.onnx",
+        "embedding_tokenizer_path": "./onnx/bge-m3/onnx/tokenizer.json",
+        "enable_special_tokens": true,
+        "vector_extraction_key": "sentence_embedding",
+        "need_token_type_ids": false
+    },
     "vector_database_url": "http://qdrant:6334", 
     "documents_collection": "documents", 
     "vector_dimensionality": 1024, 

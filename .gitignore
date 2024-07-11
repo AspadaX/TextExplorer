@@ -1,2 +1,4 @@
 onnx
 qdrant_storage
+.DS_Store
+target
