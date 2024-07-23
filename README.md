@@ -1,9 +1,7 @@
 
 # TextExplorer
 
-<div align="center">
-   <img src="assets/explorer-dark.jpg" alt="logo" width="250">
-</div>
+![Funny GIF](https://github.com/AspadaX/TextExplorer/tree/main/assets/textexplorer-ezgif.com-video-to-gif-converter.gif)
 
 TextExplorer is a powerful tool designed to make reading and searching through massive texts easier. It leverages vector search technology to efficiently find relevant information within large documents. This project uses the Qdrant vector database and ONNX for embedding models to provide fast and accurate search results.
 
