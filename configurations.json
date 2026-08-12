@@ -1,6 +1,7 @@
 {
     "host": "0.0.0.0",
     "port": 10000,
+    "use_remote_embeddings": false,
     "embedding_model_configurations": {
         "embedding_model_path": "./onnx/bge-m3/onnx/model.onnx",
         "embedding_tokenizer_path": "./onnx/bge-m3/onnx/tokenizer.json",

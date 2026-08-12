@@ -28,11 +28,14 @@ WeChat: `baoxinyu2007`
 ### Prerequisites
 
 - Docker (for running Qdrant and easier access to the project)
+- `configurations.json` to toggle between local and remote embedding providers
 
 ### Setup
 1. **Prepare the embedding model:**
    
    You will need to download a copy of `BAAI/bge-m3` on Huggingface, and place it under: `./onnx`
+
+   **Note:** To use remote embeddings, set `"use_remote_embeddings": true` in `configurations.json` and provide your API endpoint. This ensures agility and allows you to maintain full control over your data.
 
 #### Using Docker Compose
 1. Ensure Docker Compose is installed.
